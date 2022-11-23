@@ -73,10 +73,6 @@ public class RegistrationTest extends TestBase{
                 .assertValue(picture,expectedPicture)
                 .assertValue(stateAndCity,expectedStateAndCity)
                 .assertValue(dateOfBirth,expectedBirthDate);
-
-
-
-
     }
 }
 
