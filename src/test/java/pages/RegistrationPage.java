@@ -110,7 +110,7 @@ public class RegistrationPage {
 //Assert
 
     public RegistrationPage assertValue(String path, String value) {
-        $("#" +path +"").$(byText(path)).shouldHave(text(value));
+        $x("//*[contains(text(),'"+ path +"')]//following-sibling::td").shouldHave(text(value));
         return this;
     }
 }
