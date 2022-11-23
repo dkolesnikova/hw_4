@@ -22,14 +22,14 @@ public class RegistrationTest extends TestBase{
         String expectedBirthDate = "08 January,2012";
         String expectedAddress = "Smolensk";
         String expectedSubject = "English";
-        String expectedHobbie1 = "Sports";
-        String expectedHobbie2 = "Reading";
-        String expectedHobbie3 = "Music";
+        String expectedSports = "Sports";
+        String expectedReading = "Reading";
+        String expectedMusic = "Music";
         String expectedPicture = "images.jfif";
         String expectedState = "NCR";
         String expectedCity = "Delhi";
         String expectedStateAndCity = expectedState+ " " +expectedCity;
-        String studentName = "Student name";
+        String studentName = "Student Name";
         String gender = "Gender";
         String studentEmail = "Student Email";
         String mobile = "Mobile";
@@ -51,9 +51,9 @@ public class RegistrationTest extends TestBase{
                 .setBirthDate("08", "January", "2012" )
                 .setSubject(expectedSubject)
                 .pressEnterSubject()
-                .clickToHobbie(expectedHobbie1)
-                .clickToHobbie(expectedHobbie2)
-                .clickToHobbie(expectedHobbie3)
+                .clickToHobbie(expectedSports)
+                .clickToHobbie(expectedReading)
+                .clickToHobbie(expectedMusic)
                 .setPicture()
                 .setAddress(expectedAddress)
                 .setState(expectedState)
@@ -67,9 +67,9 @@ public class RegistrationTest extends TestBase{
                 .assertValue(mobile,expectedNumber)
                 .assertValue(address,expectedAddress)
                 .assertValue(subjects,expectedSubject)
-                .assertValue(hobbies,expectedHobbie1)
-                .assertValue(hobbies,expectedHobbie2)
-                .assertValue(hobbies,expectedHobbie3)
+                .assertValue(hobbies,expectedSports)
+                .assertValue(hobbies,expectedReading)
+                .assertValue(hobbies,expectedMusic)
                 .assertValue(picture,expectedPicture)
                 .assertValue(stateAndCity,expectedStateAndCity)
                 .assertValue(dateOfBirth,expectedBirthDate);
