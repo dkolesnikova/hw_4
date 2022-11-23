@@ -14,26 +14,17 @@ import static com.codeborne.selenide.Selenide.$x;
 public class RegistrationPage {
     CalendarComponent calendarComponent = new CalendarComponent();
 
-    private SelenideElement firstNamePath = $x("//input[@id='firstName']");
-    private SelenideElement secondNamePath = $x("//input[@id='lastName']");
-    private SelenideElement emailPath = $x("//input[@id='userEmail']");
-    private SelenideElement numberPath = $x("//input[@id='userNumber']");
-    private SelenideElement subjectPath = $x("//input[@id='subjectsInput']");
-    private SelenideElement pictureInput =    $x("//input[@id='uploadPicture']");
-    private SelenideElement addressPath = $x("//textarea[@id='currentAddress']");
-    private SelenideElement statePath = $x("//input[@id='react-select-3-input']");
-    private SelenideElement cityPath = $x("//input[@id='react-select-4-input']");
-    private SelenideElement saveButtonPath = $x("//div[contains(@class,'text-right col-md-2 col-sm-12')]");
-//    private SelenideElement expectedName = $x("//*[contains(text(),'Student Name')]//following-sibling::td");
-//    private SelenideElement expectedEmail = $x("//*[contains(text(),'Student Email')]//following-sibling::td");
-//    private SelenideElement expectedGender = $x("//*[contains(text(),'Gender')]//following-sibling::td");
-//    private SelenideElement expectedNumber = $x("//*[contains(text(),'Mobile')]//following-sibling::td");
-//    private SelenideElement expectedSubject = $x("//*[contains(text(),'Subjects')]//following-sibling::td");
-//    private SelenideElement expectedHobbies = $x("//*[contains(text(),'Hobbies')]//following-sibling::td");
-//    private SelenideElement expectedPicture = $x("//*[contains(text(),'Picture')]//following-sibling::td");
-//    private SelenideElement expectedAddress = $x("//*[contains(text(),'Address')]//following-sibling::td");
-//    private SelenideElement expectedStateAndCity = $x("//*[contains(text(),'State and City')]//following-sibling::td");
-//    private SelenideElement expectedBirthDate = $x("//*[contains(text(),'Date of Birth')]//following-sibling::td");
+    private SelenideElement firstNamePath = $("#firstName");
+    private SelenideElement secondNamePath = $("#lastName");
+    private SelenideElement emailPath = $("#userEmail");
+    private SelenideElement dateOdBirthInput = $("#dateOfBirthInput");
+    private SelenideElement numberPath = $("#userNumber");
+    private SelenideElement subjectPath = $("#subjectsInput");
+    private SelenideElement pictureInput =    $("#uploadPicture");
+    private SelenideElement addressPath = $("#currentAddress");
+    private SelenideElement statePath = $("#react-select-3-input");
+    private SelenideElement cityPath = $("#react-select-4-input");
+    private SelenideElement saveButtonPath = $("#text-right col-md-2 col-sm-12");
 
 
     public RegistrationPage setFirstName(String firstName) {
@@ -61,7 +52,7 @@ public class RegistrationPage {
         return this;
     }
     public RegistrationPage setBirthDate(String day, String month, String year) {
-        $("#dateOfBirthInput").click();
+        dateOdBirthInput.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
@@ -77,7 +68,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage clickToHobbie(String hobbie) {
-        $x("//label[contains(text(),'" + hobbie + "')]").click();
+        $("#hobbiesWrapper").$(byText(hobbie)).click();
         return this;
     }
 
@@ -119,52 +110,8 @@ public class RegistrationPage {
 //Assert
 
     public RegistrationPage assertValue(String path, String value) {
-        $x("//*[contains(text(),'"+ path +"')]//following-sibling::td").shouldHave(text(value));
+        $("#" +path +"").$(byText(path)).shouldHave(text(value));
         return this;
     }
-
-//    public RegistrationPage assertEmail(String mail) {
-//        expectedEmail.shouldHave(text(mail));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertGender(String gender) {
-//        expectedGender.shouldHave(text(gender));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertNumber(String number) {
-//        expectedNumber.shouldHave(text(number));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertBirthDate(String birthDate) {
-//        expectedBirthDate.shouldHave(text(birthDate));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertSubject(String subject) {
-//        expectedSubject.shouldHave(text(subject));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertHobbies(String hobbies) {
-//        expectedHobbies.shouldHave(text(hobbies));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertPicture(String picture) {
-//        expectedPicture.shouldHave(text(picture));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertAddress(String address) {
-//        expectedAddress.shouldHave(text(address));
-//        return this;
-//    }
-//
-//    public RegistrationPage assertStateAndCity(String stateAndCity) {
-//        expectedStateAndCity.shouldHave(text(stateAndCity));
-//        return this;
-    }
+}
 
