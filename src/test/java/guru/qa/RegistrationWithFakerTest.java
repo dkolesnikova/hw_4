@@ -30,7 +30,7 @@ public class RegistrationWithFakerTest extends TestBase{
         String expectedBirthMonth1 = expectedBirthMonth.toString();
         Integer expectedBirthYear = faker.number().numberBetween(1900,2021);
         String expectedBirthYear1 = expectedBirthYear.toString();
-        String expectedBirthDate = expectedBirthDay1 + expectedBirthMonth1 + expectedBirthYear1;
+        String expectedBirthDate = expectedBirthDay1 + " "+ expectedBirthMonth1 + "," + expectedBirthYear1;
         String expectedAddress = faker.address().fullAddress();
         String expectedSubject = "English";
         String expectedSports = "Sports";
